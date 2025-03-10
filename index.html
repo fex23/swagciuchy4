@@ -82,10 +82,23 @@
                 padding: 15px;
             }
 
-            .login-container input, 
+            .login-container input,
             .login-container button {
                 font-size: 14px; /* Zmniejszenie tekstu na telefonach */
                 padding: 10px;
+            }
+        }
+
+        /* Dodatkowe poprawki dla ekranów większych niż 768px */
+        @media (min-width: 769px) {
+            .login-container {
+                padding: 30px; /* Większy padding na PC */
+            }
+
+            .login-container input,
+            .login-container button {
+                font-size: 18px; /* Zwiększenie tekstu na komputerach */
+                padding: 15px;
             }
         }
     </style>
@@ -108,9 +121,9 @@
             let errorMessage = document.getElementById("error-message");
 
             if (username === "12345" && password === "12345") {
-                window.location.href = "sklep.html";
+                window.location.href = "sklep.html"; // Przekierowanie po udanym logowaniu
             } else {
-                errorMessage.textContent = "Nieprawidłowy login lub hasło!";
+                errorMessage.textContent = "Nieprawidłowy login lub hasło!"; // Wyświetlenie błędu
             }
         }
     </script>
