@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak Kupować Przedmiot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #333;
+            flex-direction: column;
+            padding: 20px; /* Dodane padding, aby nie było za blisko krawędzi na telefonach */
+        }
+
+        .instruction-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px; /* Dodatkowa przestrzeń od góry */
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            list-style-type: none;
+            margin-left: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        li::before {
+            content: counter(step);
+            counter-increment: step;
+            font-size: 40px;
+            font-weight: bold;
+            color: #007bff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #007bff;
+            margin-bottom: 15px;
+        }
+
+        ol {
+            counter-reset: step;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 60px;
+            transition: 0.3s;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Media Queries dla ekranów mobilnych */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Mniejszy padding na telefonach */
+            }
+
+            h1 {
+                font-size: 24px; /* Mniejsza czcionka nagłówka */
+            }
+
+            ol {
+                font-size: 16px; /* Zmniejszenie czcionki na telefonach */
+            }
+
+            .btn {
+                width: 100%; /* Przyciski na pełną szerokość */
+                font-size: 14px; /* Mniejsza czcionka na przycisku */
+                padding: 10px;
+            }
+
+            .menu {
+                width: 200px; /* Mniejsze menu na telefonach */
+            }
+
+            .menu-icon {
+                font-size: 25px; /* Mniejszy przycisk menu */
+                padding: 8px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Przycisk do menu -->
+    <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
+
+    <!-- Menu -->
+    <div class="menu" id="sideMenu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <a href="sklep.html">Sklep</a>
+        <a href="kontakt.html">Jak kupić?</a>
+        <a href="instagram.html">Kontakt</a>
+        <a href="index.html">Wyloguj</a>
+    </div>
+
+    <div class="instruction-container">
+        <h1>Jak Kupować Przedmiot</h1>
+        <div>
+            <p>Wykonaj te proste kroki, aby zamówić przedmiot, który Ci się spodobał!</p>
+            <ol>
+                <li>
+                    <strong>Spodobał Ci się jakiś przedmiot?</strong>
+                    <p>Jeśli tak, przejdź do kolejnego kroku!</p>
+                </li>
+                <li>
+                    <strong>Przejdź do naszego Instagrama.</strong>
+                    <p>Poniższy przycisk przeniesie cię na naszego Instagrama.</p>
+                </li>
+                <li>
+                    <strong>Napisz do nas, aby zamówić przedmiot!</strong>
+                    <p>Skontaktuj się z nami przez wiadomość na Instagramie, aby zamówić przedmiot, który wpadł Ci w oko.</p>
+                </li>
+            </ol>
+        </div>
+
+        <a href="https://www.instagram.com/swagciuchy/" target="_blank">
+            <button class="btn">Przejdź do Instagrama</button>
+        </a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("sideMenu");
+            const menuIcon = document.getElementById("menuIcon");
+            if (menu.style.left === "0px") {
+                menu.style.left = "-250px";
+                menuIcon.style.display = "block";
+            } else {
+                menu.style.left = "0px";
+                menuIcon.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
