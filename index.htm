@@ -13,6 +13,7 @@
             height: 100vh;
             flex-direction: column;
             font-family: Arial, sans-serif;
+            position: relative;
         }
         h1 {
             color: black;
@@ -41,9 +42,27 @@
             color: red;
             font-weight: bold;
         }
+        .blue-element {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border-radius: 50%;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+        }
     </style>
 </head>
 <body>
+    <img src="Rare.png" alt="Logo" class="logo">
+    <div class="blue-element"></div>
     <h1>Wpisz hasło</h1>
     <input type="password" id="password" placeholder="Hasło...">
     <button onclick="checkPassword()">Wejdź</button>
