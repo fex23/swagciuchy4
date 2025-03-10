@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logowanie</title>
+    <title>Strona Logowania</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,119 +11,82 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #f2f2f2;
             margin: 0;
-            background: url('18.jpg') no-repeat center center fixed;
-            background-size: cover;
         }
-
-        .login-container {
-            width: 90%;  /* Dostosowanie szerokości dla mobilnych */
-            max-width: 400px; /* Ograniczenie szerokości na dużych ekranach */
+        .container {
+            background-color: white;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            width: 300px;
         }
-
-        .login-container h2 {
-            color: white;
+        .logo {
+            width: 100%;
+            max-width: 150px;
             margin-bottom: 20px;
         }
-
-        .input-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .drop {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
         }
-
-        .login-container input {
-            width: 100%; /* Pełna szerokość w kontenerze */
+        input[type="password"] {
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 5px;
-            background: transparent;
-            color: white;
+            width: 80%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             font-size: 16px;
-            text-align: center;
         }
-
-        .login-container input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .login-container button {
-            width: 100%;
-            padding: 12px;
-            background-color: rgba(0, 123, 255, 0.8);
-            border: none;
-            color: white;
-            border-radius: 5px;
+        .arrow-button {
             cursor: pointer;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
             font-size: 16px;
-            margin-top: 10px;
-            transition: background 0.3s;
         }
-
-        .login-container button:hover {
-            background-color: rgba(0, 86, 179, 0.9);
+        .arrow-button:hover {
+            background-color: #45a049;
         }
-
         .error {
             color: red;
+            font-size: 14px;
             margin-top: 10px;
-        }
-
-        /* Media Queries dla ekranów mobilnych */
-        @media (max-width: 768px) {
-            .login-container {
-                width: 85%; /* Zwiększenie szerokości dla mobilnych */
-                padding: 15px;
-            }
-
-            .login-container input,
-            .login-container button {
-                font-size: 14px; /* Zmniejszenie tekstu na telefonach */
-                padding: 10px;
-            }
-        }
-
-        /* Dodatkowe poprawki dla ekranów większych niż 768px */
-        @media (min-width: 769px) {
-            .login-container {
-                padding: 30px; /* Większy padding na PC */
-            }
-
-            .login-container input,
-            .login-container button {
-                font-size: 18px; /* Zwiększenie tekstu na komputerach */
-                padding: 15px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Logowanie</h2>
-        <div class="input-container">
-            <input type="text" id="username" placeholder="Nazwa użytkownika" required>
-            <input type="password" id="password" placeholder="Hasło" required>
-        </div>
-        <button onclick="login()">Zaloguj się</button>
-        <p id="error-message" class="error"></p>
+    <div class="container">
+        <!-- Miejsce na logo -->
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <!-- Tekst z datą -->
+        <div class="drop">drop: ?? . ?? . 25r.</div>
+
+        <!-- Formularz z hasłem -->
+        <input type="password" id="password" placeholder="Wpisz hasło">
+        <button class="arrow-button" onclick="checkPassword()">➡</button>
+
+        <!-- Komunikat o błędzie -->
+        <div id="error" class="error"></div>
     </div>
 
     <script>
-        function login() {
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-            let errorMessage = document.getElementById("error-message");
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error");
 
-            if (username === "12345" && password === "12345") {
-                window.location.href = "sklep.html"; // Przekierowanie po udanym logowaniu
+            // Sprawdzanie hasła
+            if (password === "twojeHaslo") {
+                // Jeśli hasło jest poprawne, przekierowanie na stronę sklep.html
+                window.location.href = "sklep.html";
             } else {
-                errorMessage.textContent = "Nieprawidłowy login lub hasło!"; // Wyświetlenie błędu
+                // Jeśli hasło jest błędne, wyświetl komunikat o błędzie
+                errorMessage.textContent = "Błędne hasło!";
             }
         }
     </script>
