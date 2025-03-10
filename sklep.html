@@ -73,7 +73,7 @@
         /* Produkty */
         .products {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column; /* Ułożenie produktów pionowo */
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
@@ -82,11 +82,12 @@
         .product {
             background-color: white;
             padding: 20px;
-            width: 250px; /* Zwiększenie szerokości */
+            width: 300px; /* Zwiększenie szerokości produktów */
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease;
+            margin: 0 auto; /* Centrowanie produktów */
         }
 
         .product:hover {
