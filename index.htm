@@ -53,15 +53,18 @@
         }
         button {
             margin-top: 10px;
-            padding: 10px;
+            padding: 8px 16px; /* Mniejszy padding */
             background: black;
             color: white;
             border: none;
             cursor: pointer;
             text-transform: uppercase;
-            border-radius: 20px;
-            padding: 12px 24px;
-            font-size: 16px;
+            border-radius: 15px; /* Mniejsze zaokrąglenie */
+            font-size: 14px; /* Mniejszy rozmiar czcionki */
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #333; /* Subtelna zmiana koloru przy najechaniu */
         }
         #message {
             margin-top: 10px;
@@ -76,7 +79,7 @@
     <input type="password" id="password" placeholder="Hasło...">
     <button onclick="checkPassword()">Wejdź</button>
     <p id="message"></p>
-    
+
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
