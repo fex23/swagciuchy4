@@ -20,18 +20,17 @@
 
         .product-details {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            padding: 20px;
             max-width: 1000px;
             width: 90%;
-            flex-wrap: wrap;
         }
 
         .image-container {
-            flex-basis: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -40,7 +39,7 @@
         }
 
         .image-container img {
-            width: 80%;
+            width: 100%;
             max-width: 300px;
             height: auto;
             border-radius: 8px;
@@ -60,25 +59,23 @@
         }
 
         .arrow-left {
-            left: 10px;
+            left: -20px;
         }
 
         .arrow-right {
-            right: 10px;
+            right: -20px;
         }
 
         .info-container {
-            flex-basis: 45%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding-left: 20px;
         }
 
         .product-details h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #333;
             margin-bottom: 10px;
         }
@@ -90,19 +87,19 @@
         }
 
         .product-details p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #555;
             margin-bottom: 20px;
             line-height: 1.5;
         }
 
         .product-details button {
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: #0a74da;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
             margin-bottom: 20px;
@@ -135,49 +132,6 @@
         /* RESPONSYWNOŚĆ */
         @media (max-width: 768px) {
             .product-details {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .image-container {
-                flex-basis: 100%;
-                position: relative;
-                margin-bottom: 20px;
-            }
-
-            .info-container {
-                flex-basis: 100%;
-                padding-left: 0;
-                margin-top: 20px;
-            }
-
-            .arrow {
-                font-size: 1.5rem;
-                padding: 5px;
-            }
-
-            .product-details h1 {
-                font-size: 2rem;
-            }
-
-            .product-details .price {
-                font-size: 1.3rem;
-            }
-
-            .product-details p {
-                font-size: 1rem;
-            }
-
-            .product-details button {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .product-details {
                 padding: 15px;
             }
 
@@ -199,7 +153,52 @@
             }
 
             .arrow {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
+                padding: 5px;
+            }
+
+            .arrow-left {
+                left: -10px;
+            }
+
+            .arrow-right {
+                right: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-details {
+                padding: 10px;
+            }
+
+            .product-details h1 {
+                font-size: 1.6rem;
+            }
+
+            .product-details .price {
+                font-size: 1rem;
+            }
+
+            .product-details p {
+                font-size: 0.8rem;
+            }
+
+            .product-details button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .arrow {
+                font-size: 1.2rem;
+                padding: 4px;
+            }
+
+            .arrow-left {
+                left: -8px;
+            }
+
+            .arrow-right {
+                right: -8px;
             }
         }
     </style>
@@ -211,20 +210,20 @@
     <div class="product-details">
         <div class="image-container">
             <button class="arrow arrow-left" onclick="prevImage()">&#9664;</button>
-            <img id="product-image" src="zdj5.png" alt="Spodnie Dickies Madison">
+            <img id="product-image" src="zdj4.png" alt="Spodnie Dickies Madison">
             <button class="arrow arrow-right" onclick="nextImage()">&#9654;</button>
         </div>
         <div class="info-container">
             <h1>Spodnie Dickies Madison</h1>
-            <p class="price">119,99 PLN</p>
-            <p>Dickies Madison Pants to stylowe i wygodne spodnie o prostym kroju, idealne na co dzień. Wykonane z wysokiej jakości materiałów, zapewniają trwałość i komfort noszenia.</p>
+            <p class="price">149,99 PLN</p>
+            <p>Spodnie Dickies Madison to klasyczny model, który idealnie łączy funkcjonalność z modnym designem. Wykonane z wysokiej jakości materiałów, zapewniają komfort przez cały dzień.</p>
             <button onclick="showMessage()">Kup</button>
             <a href="sklep.html" class="back-button">Powrót do sklepu</a>
         </div>
     </div>
 
     <script>
-        const images = ["zdj5.png", "zdj6.png", "zdj7.png"];
+        const images = ["zdj4.png", "zdj2.png", "zdj3.png"];
         let currentIndex = 0;
 
         function showImage(index) {
