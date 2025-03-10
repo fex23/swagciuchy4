@@ -15,6 +15,18 @@
             font-family: Arial, sans-serif;
             position: relative;
         }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: black;
+            letter-spacing: 5px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Arial Black', sans-serif;
+        }
         h1 {
             color: rgb(37,145,253);
             text-transform: uppercase;
@@ -42,17 +54,10 @@
             color: red;
             font-weight: bold;
         }
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-        }
     </style>
 </head>
 <body>
-    <img src="Rare.png" alt="Logo" class="logo">
+    <div class="logo">RARETAGÉ</div>
     <h1>Wpisz hasło</h1>
     <input type="password" id="password" placeholder="Hasło...">
     <button onclick="checkPassword()">Wejdź</button>
