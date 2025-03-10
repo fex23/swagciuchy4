@@ -22,13 +22,23 @@
             color: black;
             letter-spacing: 5px;
             position: absolute;
-            top: 10px;
+            top: 50px;
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Arial Black', sans-serif;
+            animation: fadeIn 2s ease-in-out, pulse 3s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+            100% { transform: translateX(-50%) scale(1); }
         }
         h1 {
-            color: rgb(37,145,253);
+            color: black;
             text-transform: uppercase;
             letter-spacing: 5px;
         }
@@ -36,14 +46,15 @@
             padding: 10px;
             font-size: 16px;
             margin-top: 20px;
-            border: 2px solid rgb(37,145,253);
+            border: 2px solid black;
             background: none;
             text-align: center;
+            color: black;
         }
         button {
             margin-top: 10px;
             padding: 10px;
-            background: rgb(37,145,253);
+            background: black;
             color: white;
             border: none;
             cursor: pointer;
