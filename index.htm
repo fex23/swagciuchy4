@@ -3,95 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona Logowania</title>
+    <title>Logowanie</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: white; /* Białe tło */
-            margin: 0;
-            height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            flex-direction: column; /* Elementy w kolumnie */
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
         .logo {
-            width: 100%;
-            max-width: 200px;
-            margin-top: 30px; /* Odstęp od góry strony */
-        }
-        .container {
-            text-align: center;
-            width: 400px; /* Zwiększenie szerokości prostokąta */
-            padding: 30px; /* Zwiększenie paddingu */
-            background-color: #007BFF; /* Niebieskie tło */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 20px; /* Odstęp od logo */
-            color: white; /* Kolor tekstu na biały */
+            width: 200px;
+            height: 100px;
+            background: url('logo.png') no-repeat center/contain;
+            margin-bottom: 20px;
         }
         .drop {
-            font-size: 18px;
+            background-color: #333;
             color: white;
-            margin-bottom: 30px; /* Zwiększenie odstępu między tekstem a polem hasła */
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
-        input[type="password"] {
-            padding: 12px; /* Zwiększenie rozmiaru pola wejściowego */
-            width: 70%;
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .arrow-button {
-            cursor: pointer;
-            padding: 12px; /* Zwiększenie rozmiaru strzałki */
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .arrow-button:hover {
-            background-color: #45a049;
+        .login-box {
+            background-color: #add8e6;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
         }
         .error {
             color: red;
-            font-size: 14px;
+            display: none;
             margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Logo na samej górze strony -->
-    <img src="logo.png" alt="Logo" class="logo">
-
-    <div class="container">
-        <!-- Tekst z datą -->
-        <div class="drop">drop: ?? . ?? . 25r.</div>
-
-        <!-- Formularz z hasłem i przyciskiem strzałki -->
-        <div>
-            <input type="password" id="password" placeholder="Wpisz hasło">
-            <button class="arrow-button" onclick="checkPassword()">➡</button>
-        </div>
-
-        <!-- Komunikat o błędzie -->
-        <div id="error" class="error"></div>
+    <div class="logo"></div>
+    <div class="drop">Drop: ??.??.25r.</div>
+    <div class="login-box">
+        <input type="password" id="password" placeholder="Wpisz hasło">
+        <button onclick="checkPassword()">Zaloguj</button>
+        <div class="error" id="error">Błędne hasło!</div>
     </div>
-
     <script>
         function checkPassword() {
-            var password = document.getElementById("password").value;
-            var errorMessage = document.getElementById("error");
-
-            // Sprawdzanie hasła
-            if (password === "naszastrona") {
-                // Jeśli hasło jest poprawne, przekierowanie na stronę sklep.html
-                window.location.href = "sklep.html";
+            var pass = document.getElementById('password').value;
+            if (pass !== 'naszastrona') {
+                document.getElementById('error').style.display = 'block';
             } else {
-                // Jeśli hasło jest błędne, wyświetl komunikat o błędzie
-                errorMessage.textContent = "Błędne hasło!";
+                alert('Zalogowano pomyślnie!');
             }
         }
     </script>
