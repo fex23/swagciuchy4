@@ -24,13 +24,15 @@
             text-align: center;
             width: 300px;
             padding: 20px;
+            background-color: #007BFF; /* Niebieskie tło */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             margin-top: 20px; /* Odstęp od logo */
+            color: white; /* Kolor tekstu na biały */
         }
         .drop {
             font-size: 18px;
-            color: #333;
+            color: white;
             margin-bottom: 20px;
         }
         input[type="password"] {
@@ -84,7 +86,7 @@
             var errorMessage = document.getElementById("error");
 
             // Sprawdzanie hasła
-            if (password === "twojeHaslo") {
+            if (password === "naszastrona") {
                 // Jeśli hasło jest poprawne, przekierowanie na stronę sklep.html
                 window.location.href = "sklep.html";
             } else {
