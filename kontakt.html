@@ -21,7 +21,7 @@
             text-align: center;
             color: #333;
             flex-direction: column;
-            padding: 20px; /* Dodane padding, aby nie było za blisko krawędzi na telefonach */
+            padding: 20px;
         }
 
         .instruction-container {
@@ -31,7 +31,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
-            margin-top: 20px; /* Dodatkowa przestrzeń od góry */
+            margin-top: 20px;
         }
 
         h1 {
@@ -152,33 +152,32 @@
         /* Media Queries dla ekranów mobilnych */
         @media (max-width: 768px) {
             body {
-                padding: 10px; /* Mniejszy padding na telefonach */
+                padding: 10px;
             }
 
             h1 {
-                font-size: 24px; /* Mniejsza czcionka nagłówka */
+                font-size: 24px;
             }
 
             ol {
-                font-size: 16px; /* Zmniejszenie czcionki na telefonach */
+                font-size: 16px;
             }
 
             .btn {
-                width: 100%; /* Przyciski na pełną szerokość */
-                font-size: 14px; /* Mniejsza czcionka na przycisku */
+                width: 100%;
+                font-size: 14px;
                 padding: 10px;
             }
 
             .menu {
-                width: 200px; /* Mniejsze menu na telefonach */
+                width: 200px;
             }
 
             .menu-icon {
-                font-size: 25px; /* Mniejszy przycisk menu */
+                font-size: 25px;
                 padding: 8px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -188,13 +187,14 @@
     <!-- Menu -->
     <div class="menu" id="sideMenu">
         <div class="close-btn" onclick="toggleMenu()">&times;</div>
-        <a href="sklep.html">Sklep</a>
-        <a href="kontakt.html">Jak kupić?</a>
-        <a href="instagram.html">Kontakt</a>
-        <a href="index.htm">Wyloguj</a>
+        <a href="#sklep">Sklep</a>
+        <a href="#jakKupowac">Jak kupić?</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#wyloguj">Wyloguj</a>
     </div>
 
-    <div class="instruction-container">
+    <!-- Instrukcja zakupu -->
+    <div class="instruction-container" id="jakKupowac">
         <h1>Jak Kupować Przedmiot</h1>
         <div>
             <p>Wykonaj te proste kroki, aby zamówić przedmiot, który Ci się spodobał!</p>
@@ -213,7 +213,6 @@
                 </li>
             </ol>
         </div>
-
         <a href="https://www.instagram.com/swagciuchy/" target="_blank">
             <button class="btn">Przejdź do Instagrama</button>
         </a>
@@ -225,10 +224,8 @@
             const menuIcon = document.getElementById("menuIcon");
             if (menu.style.left === "0px") {
                 menu.style.left = "-250px";
-                menuIcon.style.display = "block";
             } else {
                 menu.style.left = "0px";
-                menuIcon.style.display = "none";
             }
         }
     </script>
