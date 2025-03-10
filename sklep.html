@@ -42,7 +42,7 @@
             padding-top: 60px;
             transition: left 0.3s ease-in-out;
         }
-        
+
         .menu a {
             display: block;
             padding: 15px;
@@ -50,11 +50,11 @@
             text-decoration: none;
             font-size: 18px;
         }
-        
+
         .menu a:hover {
             background-color: #575757;
         }
-        
+
         .close-btn {
             position: absolute;
             top: 10px;
@@ -82,7 +82,7 @@
         .product {
             background-color: white;
             padding: 20px;
-            width: 200px;
+            width: 250px; /* Zwiększenie szerokości */
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -110,6 +110,22 @@
             color: #777;
         }
 
+        /* Stylizacja przycisków */
+        .product button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+        }
+
         /* Media Queries dla urządzeń mobilnych */
         @media (max-width: 768px) {
             h1 {
@@ -135,6 +151,10 @@
                 width: 100%;
                 max-width: 300px;
                 margin-bottom: 20px;
+            }
+
+            .product button {
+                width: 100%;
             }
         }
     </style>
