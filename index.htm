@@ -7,35 +7,34 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: white; /* Białe tło */
+            margin: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f2f2f2;
-            margin: 0;
         }
         .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 300px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         .logo {
             width: 100%;
-            max-width: 150px;
+            max-width: 200px;
             margin-bottom: 20px;
         }
         .drop {
-            margin-bottom: 20px;
             font-size: 18px;
             color: #333;
+            margin-bottom: 20px;
         }
         input[type="password"] {
             padding: 10px;
-            width: 80%;
-            margin-bottom: 20px;
+            width: 70%;
+            margin-right: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
@@ -60,16 +59,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Miejsce na logo -->
-        <img src="logo.png" alt="Logo" class="logo">
+    <!-- Logo na samej górze strony -->
+    <img src="logo.png" alt="Logo" class="logo">
 
+    <div class="container">
         <!-- Tekst z datą -->
         <div class="drop">drop: ?? . ?? . 25r.</div>
 
-        <!-- Formularz z hasłem -->
-        <input type="password" id="password" placeholder="Wpisz hasło">
-        <button class="arrow-button" onclick="checkPassword()">➡</button>
+        <!-- Formularz z hasłem i przyciskiem strzałki -->
+        <div>
+            <input type="password" id="password" placeholder="Wpisz hasło">
+            <button class="arrow-button" onclick="checkPassword()">➡</button>
+        </div>
 
         <!-- Komunikat o błędzie -->
         <div id="error" class="error"></div>
