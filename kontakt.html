@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jak Kupować Przedmiot</title>
+    <title>Kontakt</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -22,86 +21,47 @@
             color: #333;
             flex-direction: column;
             padding: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
-        .instruction-container {
+        .contact-container {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
-            margin-top: 20px;
+            animation: slideUp 0.5s ease-out;
         }
 
         h1 {
             font-size: 30px;
-            color: #007bff;
+            color: black;
             margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
-        ol {
-            list-style-type: none;
-            margin-left: 0;
+        p {
             font-size: 18px;
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        li {
-            margin-bottom: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        li::before {
-            content: counter(step);
-            counter-increment: step;
-            font-size: 40px;
-            font-weight: bold;
-            color: #007bff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            border: 2px solid #007bff;
-            margin-bottom: 15px;
-        }
-
-        ol {
-            counter-reset: step;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .btn {
-            background-color: #007bff;
+            background-color: black;
             color: white;
             border: none;
             padding: 12px 25px;
             font-size: 16px;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 20px;
             transition: background-color 0.3s ease;
+            animation: fadeIn 2s ease-out;
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
 
         .menu-icon {
@@ -113,20 +73,20 @@
             background-color: white;
             padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
 
+        /* Menu boczne */
         .menu {
             position: fixed;
             top: 0;
-            left: -250px;
+            left: -260px;
             width: 250px;
             height: 100%;
             background-color: #333;
             color: white;
             padding-top: 60px;
-            transition: 0.3s;
+            transition: left 0.3s ease-in-out;
         }
 
         .menu a {
@@ -135,6 +95,7 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
+            transition: background-color 0.3s ease;
         }
 
         .menu a:hover {
@@ -149,72 +110,48 @@
             cursor: pointer;
         }
 
-        /* Media Queries dla ekranów mobilnych */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
+        /* Animacje */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
-
-            h1 {
-                font-size: 24px;
+            to {
+                opacity: 1;
             }
+        }
 
-            ol {
-                font-size: 16px;
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
             }
-
-            .btn {
-                width: 100%;
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            .menu {
-                width: 200px;
-            }
-
-            .menu-icon {
-                font-size: 25px;
-                padding: 8px;
+            to {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Przycisk do menu -->
+    <!-- Ikona menu -->
     <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
 
-    <!-- Menu -->
+    <!-- Menu boczne -->
     <div class="menu" id="sideMenu">
         <div class="close-btn" onclick="toggleMenu()">&times;</div>
         <a href="sklep.html">Sklep</a>
         <a href="kontakt.html">Jak kupić?</a>
         <a href="instagram.html">Kontakt</a>
-        <a href="index.htm">Wyloguj</a>
+        <a href="index.html">Wyloguj</a>
     </div>
 
-    <!-- Instrukcja zakupu -->
-    <div class="instruction-container" id="jakKupowac">
-        <h1>Jak Kupować Przedmiot</h1>
-        <div>
-            <p>Wykonaj te proste kroki, aby zamówić przedmiot, który Ci się spodobał!</p>
-            <ol>
-                <li>
-                    <strong>Spodobał Ci się jakiś przedmiot?</strong>
-                    <p>Jeśli tak, przejdź do kolejnego kroku!</p>
-                </li>
-                <li>
-                    <strong>Przejdź do naszego Instagrama.</strong>
-                    <p>Poniższy przycisk przeniesie cię na naszego Instagrama.</p>
-                </li>
-                <li>
-                    <strong>Napisz do nas, aby zamówić przedmiot!</strong>
-                    <p>Skontaktuj się z nami przez wiadomość na Instagramie, aby zamówić przedmiot, który wpadł Ci w oko.</p>
-                </li>
-            </ol>
-        </div>
-        <a href="https://www.instagram.com/swagciuchy/" target="_blank">
-            <button class="btn">Przejdź do Instagrama</button>
+    <!-- Kontener z danymi kontaktowymi -->
+    <div class="contact-container">
+        <h1>Kontakt z nami</h1>
+        <p>Masz pytania? Jeśli chcesz dowiedzieć się więcej o naszych produktach, skontaktuj się z nami na Instagramie.</p>
+        <p><strong>Jeśli chcesz kupić nasze produkty, zapraszamy do sekcji "Jak kupić?" w menu!</strong></p>
+        <a href="instagram.html">
+            <button class="btn">Napisz do nas na Instagramie</button>
         </a>
     </div>
 
@@ -224,8 +161,10 @@
             const menuIcon = document.getElementById("menuIcon");
             if (menu.style.left === "0px") {
                 menu.style.left = "-250px";
+                menuIcon.style.display = "block";
             } else {
                 menu.style.left = "0px";
+                menuIcon.style.display = "none";
             }
         }
     </script>
