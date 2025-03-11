@@ -1,28 +1,61 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sklep</title>
-    <style>
-        /* Inne style CSS */
+            .product-details button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
 
-        .black-button {
-            background-color: black;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
+            .arrow {
+                font-size: 1.5rem;
+                padding: 5px;
+            }
+
+            .arrow-left {
+                left: -10px;
+            }
+
+            .arrow-right {
+                right: -10px;
+            }
         }
 
-        .black-button:hover {
-            background-color: #333;
-            color: white;
+        @media (max-width: 480px) {
+            .product-details {
+                padding: 10px;
+            }
+
+            .product-details h1 {
+                font-size: 1.6rem;
+            }
+
+            .product-details .price {
+                font-size: 1rem;
+            }
+
+            .product-details p {
+                font-size: 0.8rem;
+            }
+
+            .product-details button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .arrow {
+                font-size: 1.2rem;
+                padding: 4px;
+            }
+
+            .arrow-left {
+                left: -8px;
+            }
+
+            .arrow-right {
+                right: -8px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="message" id="message">Napisz do nas na Instagramie!</div>
 
@@ -37,7 +70,7 @@
             <p class="price">149,99 PLN</p>
             <p>Spodnie Carhartt WIP Brandon to klasyczny model, który idealnie łączy funkcjonalność z modnym designem. Wykonane z wysokiej jakości materiałów, zapewniają komfort przez cały dzień.</p>
             <button onclick="showMessage()">Kup</button>
-            <a href="sklep.html" class="back-button black-button">Powrót do sklepu</a>
+            <a href="sklep.html" class="back-button">Powrót do sklepu</a>
         </div>
     </div>
 
@@ -58,6 +91,4 @@
             currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
             showImage(currentIndex);
         }
-    </script>
-</body>
-</html>
+zmien kolor na czarny przycisk powort do sklepu reszty n zmieniaj
