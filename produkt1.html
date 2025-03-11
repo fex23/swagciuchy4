@@ -1,4 +1,160 @@
+
 <!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spodnie Carhartt WIP Brandon</title>
+        <!-- Ikona strony (favicon) ustawiona na zdj.png -->
+<link rel="apple-touch-icon" sizes="180x180" href="zdj.png">
+<link rel="icon" type="image/png" sizes="32x32" href="zdj.png">
+<link rel="icon" type="image/png" sizes="16x16" href="zdj.png">
+<link rel="manifest" href="site.webmanifest">
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 1000px;
+            width: 90%;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .arrow-left {
+            left: -20px;
+        }
+
+        .arrow-right {
+            right: -20px;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-details h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-details .price {
+            font-size: 1.5rem;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .product-details p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-details button {
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .product-details button:hover {
+            background-color: #000000;
+        }
+
+        .back-button {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #0a74da;
+            margin-top: 10px;
+        }
+
+        .message {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #0a74da;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            font-size: 1.2rem;
+            z-index: 1000;
+        }
+
+        /* RESPONSYWNOŚĆ */
+        @media (max-width: 768px) {
+            .product-details {
+                padding: 15px;
+            }
+
+            .product-details h1 {
+                font-size: 1.8rem;
+            }
+
+            .product-details .price {
+                font-size: 1.2rem;
+            }
+
+            .product-details p {
+                font-size: 0.9rem;
+            }
+
             .product-details button {
                 font-size: 0.9rem;
                 padding: 8px 16px;
@@ -91,4 +247,16 @@
             currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
             showImage(currentIndex);
         }
-zmien kolor na czarny przycisk powort do sklepu reszty n zmieniaj
+
+        function showMessage() {
+            const message = document.getElementById("message");
+            message.style.display = 'block';
+
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
