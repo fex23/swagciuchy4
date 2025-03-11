@@ -29,7 +29,7 @@ body {
   color: #333;
   flex-direction: column;
   padding: 20px;
-  animation: fadeIn 1s ease-out; /* Animacja dla całego ciała strony */
+  animation: fadeInUp 1s ease-out; /* Animacja dla całego ciała strony */
 }
 
 .instruction-container {
@@ -40,14 +40,18 @@ body {
   width: 100%;
   max-width: 600px;
   margin-top: 20px;
-  animation: slideUp 0.5s ease-out; /* Animacja dla kontenera instrukcji */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards; /* Animacja dla kontenera instrukcji */
 }
 
 h1 {
   font-size: 30px;
   color: #000000;
   margin-bottom: 20px;
-  animation: fadeIn 1s ease-out; /* Animacja pojawiania się tytułu */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease-out forwards; /* Animacja dla tytułu */
 }
 
 ol {
@@ -58,29 +62,23 @@ ol {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeIn 1.5s ease-out; /* Animacja dla listy instrukcji */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.4s ease-out forwards; /* Animacja dla listy instrukcji */
 }
 
 /* Animacje */
-@keyframes fadeIn {
-  from {
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
+    transform: translateY(50px);
   }
-  to {
+  100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 0;
-  }
-}
 </style>
 
 </head>
