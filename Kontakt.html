@@ -1,180 +1,227 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raretage - Kontakt</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raretage - Kontakt</title>
 <!-- Ikona strony (favicon) ustawiona na zdj.png -->
 <link rel="apple-touch-icon" sizes="180x180" href="zdj.png">
 <link rel="icon" type="image/png" sizes="32x32" href="zdj.png">
 <link rel="icon" type="image/png" sizes="16x16" href="zdj.png">
 <link rel="manifest" href="site.webmanifest">
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: #333;
+  flex-direction: column;
+  padding: 20px;
+  animation: fadeIn 1s ease-out; /* Animacja fadeIn dla całej strony */
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            color: #333;
-            flex-direction: column;
-            padding: 20px;
-            animation: fadeIn 1s ease-out;
-        }
+.menu-icon {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out; /* Animacja wysuwającego się menu */
+}
 
-        .contact-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            animation: slideUp 0.5s ease-out;
-        }
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease-in-out;
+  animation: slideMenuIn 0.5s ease-out; /* Animacja dla menu */
+}
 
-        h1 {
-            font-size: 30px;
-            color: black;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out;
-        }
+.menu a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  animation: fadeInLinks 0.7s ease-out; /* Animacja dla linków w menu */
+}
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-out;
-        }
+.menu a:hover {
+  background-color: #575757;
+}
 
-        .btn {
-            background-color: black;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            animation: fadeIn 2s ease-out;
-        }
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
 
-        .btn:hover {
-            background-color: #333;
-        }
+.contact-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  animation: slideUp 0.5s ease-out; /* Animacja wchodzenia dla kontenera kontaktowego */
+}
 
-        .menu-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
+h1 {
+  font-size: 30px;
+  color: black;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-out; /* Animacja wchodzenia dla tytułu */
+}
 
-        /* Menu boczne */
-        .menu {
-            position: fixed;
-            top: 0;
-            left: -260px;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            padding-top: 60px;
-            transition: left 0.3s ease-in-out;
-        }
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-out; /* Animacja wchodzenia dla tekstu */
+}
 
-        .menu a {
-            display: block;
-            padding: 15px;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
+.btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: bounce 1s ease-out infinite; /* Animacja odbicia przycisku */
+}
 
-        .menu a:hover {
-            background-color: #575757;
-        }
+.btn:hover {
+  background-color: #333;
+}
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-        }
+/* Animacje */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-        /* Animacje */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    </style>
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideMenuIn {
+  from {
+    left: -250px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLinks {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+</style>
+
 </head>
 <body>
-    <!-- Ikona menu -->
-    <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
+<!-- Ikona menu -->
+<div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
 
-    <!-- Menu boczne -->
-    <div class="menu" id="sideMenu">
-        <div class="close-btn" onclick="toggleMenu()">&times;</div>
-        <a href="sklep.html">Sklep</a>
-        <a href="poradnik.htm">Jak kupić?</a>
-        <a href="Kontakt.html">Kontakt</a>
-        <a href="index.htm">Wyloguj</a>
-    </div>
+<!-- Menu boczne -->
+<div class="menu" id="sideMenu">
+  <div class="close-btn" onclick="toggleMenu()">&times;</div>
+  <a href="sklep.html">Sklep</a>
+  <a href="poradnik.htm">Jak kupić?</a>
+  <a href="Kontakt.html">Kontakt</a>
+  <a href="index.htm">Wyloguj</a>
+</div>
 
-    <!-- Kontener z danymi kontaktowymi -->
-    <div class="contact-container">
-        <h1>Kontakt z nami</h1>
-        <p>Masz pytania? Jeśli chcesz dowiedzieć się więcej o naszych produktach, skontaktuj się z nami na Instagramie.</p>
-        <p><strong>Jeśli chcesz kupić nasze produkty, zapraszamy do sekcji "Jak kupić?" w menu!</strong></p>
-        <a href="https://www.instagram.com/raretage.shop/">
-            <button class="btn">Napisz do nas na Instagramie</button>
-        </a>
-    </div>
+<!-- Kontener z danymi kontaktowymi -->
+<div class="contact-container">
+  <h1>Kontakt z nami</h1>
+  <p>Masz pytania? Jeśli chcesz dowiedzieć się więcej o naszych produktach, skontaktuj się z nami na Instagramie.</p>
+  <p><strong>Jeśli chcesz kupić nasze produkty, zapraszamy do sekcji "Jak kupić?" w menu!</strong></p>
+  <a href="https://www.instagram.com/raretage.shop/">
+    <button class="btn">Napisz do nas na Instagramie</button>
+  </a>
+</div>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("sideMenu");
-            const menuIcon = document.getElementById("menuIcon");
-            if (menu.style.left === "0px") {
-                menu.style.left = "-250px";
-                menuIcon.style.display = "block";
-            } else {
-                menu.style.left = "0px";
-                menuIcon.style.display = "none";
-            }
-        }
-    </script>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("sideMenu");
+  const menuIcon = document.getElementById("menuIcon");
+  if (menu.style.left === "0px") {
+    menu.style.left = "-250px";
+    menuIcon.style.display = "block";
+  } else {
+    menu.style.left = "0px";
+    menuIcon.style.display = "none";
+  }
+}
+</script>
 </body>
 </html>
