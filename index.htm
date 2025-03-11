@@ -1,108 +1,142 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raretagé</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raretagé</title>
 
-
-    <!-- Ikona strony (favicon) ustawiona na zdj.png -->
+<!-- Ikona strony (favicon) ustawiona na zdj.png -->
 <link rel="apple-touch-icon" sizes="180x180" href="zdj.png">
 <link rel="icon" type="image/png" sizes="32x32" href="zdj.png">
 <link rel="icon" type="image/png" sizes="16x16" href="zdj.png">
 <link rel="manifest" href="site.webmanifest">
 
+<style>
+body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 5px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Arial Black', sans-serif;
+    animation: fadeIn 2s ease-in-out, pulse 3s infinite;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+h1 {
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border: 2px solid black;
+    background: none;
+    text-align: center;
+    color: black;
+    border-radius: 15px;
+    padding-right: 40px; /* Miejsce na ikonę */
+}
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+}
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: #333;
+}
+#message {
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
+}
+</style>
 
+<!-- Ikona FontAwesome (dla ikony oka) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-
-
-
-    <style>
-        body {
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            font-family: Arial, sans-serif;
-            position: relative;
-        }
-        .logo {
-            font-size: 48px;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: black;
-            letter-spacing: 5px;
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Arial Black', sans-serif;
-            animation: fadeIn 2s ease-in-out, pulse 3s infinite;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes pulse {
-            0% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.1); }
-            100% { transform: translateX(-50%) scale(1); }
-        }
-        h1 {
-            color: black;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 20px;
-            border: 2px solid black;
-            background: none;
-            text-align: center;
-            color: black;
-            border-radius: 15px; /* Zaokrąglenie pola */
-        }
-        button {
-            margin-top: 10px;
-            padding: 8px 16px; /* Mniejszy padding */
-            background: black;
-            color: white;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            border-radius: 15px; /* Mniejsze zaokrąglenie */
-            font-size: 14px; /* Mniejszy rozmiar czcionki */
-            transition: all 0.3s ease;
-        }
-        button:hover {
-            background-color: #333; /* Subtelna zmiana koloru przy najechaniu */
-        }
-        #message {
-            margin-top: 10px;
-            color: red;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
-    <div class="logo">RARETAGÉ</div>
-    <h1>Wpisz hasło</h1>
-    <input type="password" id="password" placeholder="Hasło...">
-    <button onclick="checkPassword()">Wejdź</button>
-    <p id="message"></p>
+<div class="logo">RARETAGÉ</div>
+<h1>Wpisz hasło</h1>
 
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "naszastrona") {
-                window.location.href = "sklep.html";
-            } else {
-                document.getElementById("message").textContent = "Nieprawidłowe hasło!";
-            }
-        }
-    </script>
+<div class="input-container">
+    <input type="password" id="password" placeholder="Hasło...">
+    <i class="fas fa-eye eye-icon" id="togglePassword"></i>
+</div>
+
+<button onclick="checkPassword()">Wejdź</button>
+<p id="message"></p>
+
+<script>
+document.getElementById("togglePassword").addEventListener("click", function() {
+    var passwordField = document.getElementById("password");
+    var icon = document.getElementById("togglePassword");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        passwordField.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+});
+
+function checkPassword() {
+    var password = document.getElementById("password").value;
+    if (password === "naszastrona") {
+        window.location.href = "sklep.html";
+    } else {
+        document.getElementById("message").textContent = "Nieprawidłowe hasło!";
+    }
+}
+</script>
+
 </body>
 </html>
