@@ -77,8 +77,29 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 1s ease-out forwards;
+            position: relative;
+            padding-left: 40px; /* Miejsce na numerację */
         }
-        
+
+        li::before {
+            content: counter(step); /* Dodanie numeracji */
+            counter-increment: step; /* Inkrementacja licznika */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #f4f4f4;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         li:nth-child(1) { animation-delay: 0.3s; }
         li:nth-child(2) { animation-delay: 0.6s; }
         li:nth-child(3) { animation-delay: 0.9s; }
@@ -137,7 +158,7 @@
             color: #000000;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 10px;
-            border-radius: 4px; /* Zmiana na prostokątny kształt */
+            border-radius: 4px; /* Prostokątny kształt */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Prostokątny cień */
             transition: transform 0.3s ease;
         }
@@ -161,6 +182,7 @@
             color: white;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            font-weight: bold; /* Pogrubienie napisów w menu */
         }
 
         .menu a:hover {
