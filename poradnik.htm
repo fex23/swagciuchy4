@@ -1,98 +1,174 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raretage - Jak kupować?</title>
-
-<!-- Ikona strony (favicon) ustawiona na zdj.png -->
-<link rel="apple-touch-icon" sizes="180x180" href="zdj.png">
-<link rel="icon" type="image/png" sizes="32x32" href="zdj.png">
-<link rel="icon" type="image/png" sizes="16x16" href="zdj.png">
-<link rel="manifest" href="site.webmanifest">
-
-<style>
+<!DOCTYPE html> 
+<html lang="pl"> 
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>Raretage - Jak kupować?</title>          
+    <link rel="apple-touch-icon" sizes="180x180" href="zdj.png"> 
+    <link rel="icon" type="image/png" sizes="32x32" href="zdj.png"> 
+    <link rel="icon" type="image/png" sizes="16x16" href="zdj.png"> 
+    <link rel="manifest" href="site.webmanifest">                  
+    <style>         
         * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } 
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  color: #333;
-  flex-direction: column;
-  padding: 20px;
-  animation: fadeInUp 1s ease-out; /* Animacja dla całego ciała strony */
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #333;
+            flex-direction: column;
+            padding: 20px;
+        } 
 
-.instruction-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 1s ease-out forwards; /* Animacja dla kontenera instrukcji */
-}
+        .instruction-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
 
-h1 {
-  font-size: 30px;
-  color: #000000;
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1.2s ease-out forwards; /* Animacja dla tytułu */
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-ol {
-  list-style-type: none;
-  margin-left: 0;
-  font-size: 18px;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1.4s ease-out forwards; /* Animacja dla listy instrukcji */
-}
+        h1 {
+            font-size: 30px;
+            color: #000000;
+            margin-bottom: 20px;
+        } 
 
-/* Animacje */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        ol {
+            list-style-type: none;
+            margin-left: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } 
 
-</style>
+        li {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        li:nth-child(1) { animation-delay: 0.3s; }
+        li:nth-child(2) { animation-delay: 0.6s; }
+        li:nth-child(3) { animation-delay: 0.9s; }
 
-</head>
-<body>
-<div class="instruction-container">
-  <h1>Jak kupować?</h1>
-  <ol>
-    <li>1. Wybierz interesujący Cię produkt.</li>
-    <li>2. Kliknij przycisk „Dodaj do koszyka”.</li>
-    <li>3. Przejdź do koszyka, aby zakończyć zakupy.</li>
-    <li>4. Zarejestruj się lub zaloguj, aby zrealizować zamówienie.</li>
-    <li>5. Zakończ zakup, wybierając metodę płatności.</li>
-  </ol>
-</div>
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 60px;
+            transition: 0.3s;
+        }
 
-</body>
+        .menu.open {
+            animation: slideIn 0.3s forwards;
+        }
+        
+        @keyframes slideIn {
+            from { left: -250px; }
+            to { left: 0; }
+        }
+        
+        @keyframes slideOut {
+            from { left: 0; }
+            to { left: -250px; }
+        }
+        
+        .btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head> 
+<body>     
+    <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>      
+    <div class="menu" id="sideMenu">         
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>         
+        <a href="sklep.html">Sklep</a>         
+        <a href="poradnik.htm">Jak kupić?</a>         
+        <a href="Kontakt.html">Kontakt</a>         
+        <a href="index.htm">Wyloguj</a>     </div>      
+    <div class="instruction-container" id="jakKupowac">         
+        <h1>Jak Kupować Przedmiot</h1>         
+        <div>             
+            <p>Wykonaj te proste kroki, aby zamówić przedmiot, który Ci się spodobał!</p>             
+            <ol>                 
+                <li>                     
+                    <strong>Spodobał Ci się jakiś przedmiot?</strong>                     
+                    <p>Jeśli tak, przejdź do kolejnego kroku!</p>                 
+                </li>                 
+                <li>                     
+                    <strong>Przejdź do naszego Instagrama.</strong>                     
+                    <p>Poniższy przycisk przeniesie cię na naszego Instagrama.</p>                 
+                </li>                 
+                <li>                     
+                    <strong>Napisz do nas, aby zamówić przedmiot!</strong>                     
+                    <p>Skontaktuj się z nami przez wiadomość na Instagramie, aby zamówić przedmiot, który wpadł Ci w oko.</p>                 
+                </li>             
+            </ol>         
+        </div>         
+        <a href="https://www.instagram.com/raretage.shop/" target="_blank">             
+            <button class="btn">Przejdź do Instagrama</button>         
+        </a>     
+    </div>      
+    <script>         
+        function toggleMenu() {
+            const menu = document.getElementById("sideMenu");
+            if (menu.style.left === "0px") {
+                menu.style.animation = "slideOut 0.3s forwards";
+                setTimeout(() => menu.style.left = "-250px", 300);
+            } else {
+                menu.style.animation = "slideIn 0.3s forwards";
+                menu.style.left = "0px";
+            }
+        }
+    </script> 
+</body> 
 </html>
