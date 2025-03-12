@@ -7,13 +7,13 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.raretage.pl/o-nas.html</loc>
+        <loc>https://www.raretage.pl/.html</loc>
         <lastmod>2025-03-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.raretage.pl/kontakt.html</loc>
+        <loc>https://www.raretage.pl/.html</loc>
         <lastmod>2025-03-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
